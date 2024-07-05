@@ -14,6 +14,14 @@ module.exports = defineConfig({
     charts: true,
     reportPageTitle: "Relatório de testes",
   },
+  env: {
+    graphqlUrl: "https://graphqlzero.almansi.me/api",
+    USER_ID: '1',
+    USERNAME: 'Bret',
+    EMAIL: 'Sincere@april.biz',
+    LATITUDE: -37.3159,
+    LONGITUDE: 81.1496
+  },
   e2e: {
     baseUrl: "https://www.wikipedia.org",
     setupNodeEvents(on, config) {

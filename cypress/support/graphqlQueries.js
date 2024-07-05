@@ -1,7 +1,6 @@
-// cypress/support/graphqlQueries.js
 export const getUserQuery = `
   query {
-    user(id: 1) {
+    user(id: ${Cypress.env('USER_ID')}) {
       id
       username
       email

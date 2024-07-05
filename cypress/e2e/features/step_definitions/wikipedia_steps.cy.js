@@ -7,10 +7,10 @@ Given('I open the Wikipedia home page', () => {
   wikipediaPage.visit();
 });
 
-When('I search for {string}', (searchTerm) => {
-  wikipediaPage.search(searchTerm);
+When('I search for {string}', (term) => {
+  wikipediaPage.search(term);
 });
 
-Then('I should see the main content for {string}', (content) => {
-  wikipediaPage.verifyContent(content);
+Then('I should see the main content for {string}', (term) => {
+  wikipediaPage.verifyMainContent(term);
 });
