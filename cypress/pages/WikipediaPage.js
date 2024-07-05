@@ -7,10 +7,7 @@ class WikipediaPage {
     cy.get('input[name="search"]').type(term + '{enter}');
   }
 
-  verifyMainContent(term) {
-    cy.get('.mw-page-title-main', { timeout: 20000 }).should('contain', term);
-    cy.percySnapshot('Main Content');
-  }
+
 
   verifyMainSections() {
     cy.get('body', { timeout: 20000 }).should('be.visible');
