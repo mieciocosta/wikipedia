@@ -9,7 +9,8 @@ class WikipediaPage {
 
   verifyMainContent(term) {
     //cy.get('.mw-page-title-main', { timeout: 20000 }).should('contain', term);
-    //cy.percySnapshot('Main Content');
+    cy.get('#firstHeading', { timeout: 20000 }).should('contain', term);
+    cy.percySnapshot('Main Content');
   }
 
   verifyMainSections() {
