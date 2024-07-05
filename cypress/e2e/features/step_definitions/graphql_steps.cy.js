@@ -1,12 +1,6 @@
 import { Given, Then } from 'cypress-cucumber-preprocessor/steps';
 import { getUserQuery } from '../../../support/graphqlQueries';
-import {
-  USER_ID,
-  USERNAME,
-  EMAIL,
-  LATITUDE,
-  LONGITUDE,
-} from '../../../support/constants';
+import { USER_ID, USERNAME, EMAIL, LATITUDE, LONGITUDE } from '../../../support/constants';
 
 Given('I send a GraphQL query to get user details', () => {
   cy.request({
