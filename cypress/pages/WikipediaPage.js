@@ -13,7 +13,6 @@ class WikipediaPage {
   }
 
   verifyMainSections() {
-    // Aguarda a página carregar completamente antes de verificar os elementos
     cy.get('body', { timeout: 20000 }).should('be.visible');
     cy.get('#content', { timeout: 20000 }).should('be.visible');
     cy.get('#firstHeading', { timeout: 20000 }).should('be.visible');
