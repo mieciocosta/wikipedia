@@ -1,4 +1,3 @@
-// cypress/pages/WikipediaPage.js
 class WikipediaPage {
   visit() {
     cy.visit('/');
@@ -9,13 +8,17 @@ class WikipediaPage {
   }
 
   verifyMainContent(term) {
-    cy.get('span.mw-page-title-main').should('contain', term);
+    cy.get('span.mw-page-title-main', { timeout: 20000 }).should('contain', term);
+    cy.percySnapshot('Main Content');
   }
 
   verifyMainSections() {
-    cy.get('#content').should('be.visible');
-    cy.get('#firstHeading').should('be.visible');
-    cy.get('.infobox').should('be.visible');
+    // Aguarda a página carregar completamente antes de verificar os elementos
+    cy.get('body', { timeout: 20000 }).should('be.visible');
+    cy.get('#content', { timeout: 20000 }).should('be.visible');
+    cy.get('#firstHeading', { timeout: 20000 }).should('be.visible');
+    cy.get('.infobox', { timeout: 20000 }).should('be.visible');
+    cy.percySnapshot('Main Sections');
   }
 }
 
