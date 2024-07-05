@@ -9,7 +9,6 @@ Given('I send a GraphQL query to get user details', () => {
       query: getUserQuery,
     },
   }).as('graphqlResponse');
-  cy.percySnapshot('GraphQL Query Sent');
 });
 
 Then('the response should have the user details', () => {
@@ -21,6 +20,5 @@ Then('the response should have the user details', () => {
     expect(user).to.have.property('email', Cypress.env('EMAIL'));
     expect(user.address.geo).to.have.property('lat', Cypress.env('LATITUDE'));
     expect(user.address.geo).to.have.property('lng', Cypress.env('LONGITUDE'));
-    cy.percySnapshot('GraphQL Response with User Details');
   });
 });
