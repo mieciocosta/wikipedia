@@ -6,6 +6,7 @@
   "scripts": {
     "cypress": "npx cypress open",
     "test": "npx cypress run",
+    "test-percy": "npx percy exec -- npx cypress run",
     "prettier": "prettier --write \"cypress/**/*.js\""
   },
   "cypress-cucumber-preprocessor": {

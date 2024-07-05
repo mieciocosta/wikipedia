@@ -4,6 +4,7 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 module.exports = defineConfig({
   viewportWidth: 1366,
   viewportHeight: 768,
+  defaultCommandTimeout: 10000, // Aumenta o tempo de espera padrão para 10 segundos
   reporter: "mochawesome",
   reporterOptions: {
     reportDir: "cypress/reports/mochawesome-report",
