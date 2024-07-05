@@ -8,11 +8,8 @@ class WikipediaPage {
   }
 
   verifyMainContent(term) {
-    cy.get('.mw-page-title-main', { timeout: 30000 }).should('contain', term).then(() => {
+    cy.get('.mw-page-title-main', { timeout: 30000 }).should('contain', term).then(($element) => {
       cy.percySnapshot('Main Content');
-    }).catch((error) => {
-      cy.log('Erro ao verificar o conteúdo principal:', error);
-      throw error;
     });
   }
 
