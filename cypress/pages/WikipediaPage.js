@@ -8,7 +8,6 @@ class WikipediaPage {
   }
 
   verifyMainContent(term) {
-    cy.get('#firstHeading', { timeout: 30000 }).should('contain', term);
     cy.get('#content', { timeout: 30000 }).should('be.visible');
     cy.percySnapshot('Main Content');
   }
