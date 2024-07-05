@@ -21,12 +21,20 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Set display resolution
-        run: |
-          Xvfb :99 -screen 0 1366x768x24 &
-          export DISPLAY=:99
-
-      - name: Run Cypress with Percy
-        run: npx percy exec -- npx cypress run
+      - name: Run Cypress tests
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+        run: |
+          npx percy exec -- npx cypress run
+
+      - name: Upload Cypress Videos
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-videos
+          path: cypress/videos
+
+      - name: Upload Cypress Screenshots
+        uses: actions/upload-artifact@v2
+        with:
+          name: cypress-screenshots
+          path: cypress/screenshots
