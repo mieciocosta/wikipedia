@@ -5,12 +5,20 @@ const wikipediaPage = new WikipediaPage();
 
 Given('I open the Wikipedia home page', () => {
   wikipediaPage.visit();
+  cy.percySnapshot('Wikipedia Home Page');
 });
 
 When('I search for {string}', (term) => {
   wikipediaPage.search(term);
+  cy.percySnapshot(`Search for ${term}`);
 });
 
-Then('I should see the main content for {string}', (term) => {
+Then('the main content should contain {string}', (term) => {
   wikipediaPage.verifyMainContent(term);
+  cy.percySnapshot(`Main Content for ${term}`);
+});
+
+Then('the main sections should be visible', () => {
+  wikipediaPage.verifyMainSections();
+  cy.percySnapshot('Main Sections Visible');
 });
